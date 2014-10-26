@@ -1,0 +1,5 @@
+GET     /usuario                controllers.UsuarioController.getUsuarios()
+POST    /usuario                controllers.UsuarioController.createUsuario()
+GET     /usuario/:id            controllers.UsuarioController.getUsuario(id:Long)
+PUT     /usuario/:id            controllers.UsuarioController.updateUsuario(id:Long)
+DELETE  /usuario/:id            controllers.UsuarioController.deleteUsuario(id:Long)
