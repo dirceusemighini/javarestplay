@@ -19,12 +19,12 @@ public class UsuarioDAO {
        map.put(1l,new Usuario(1l,"Dirceu",new Endereco(1l,"Marques de São Vicente","3001","Sao Paulo","SP","Agua Branca","05036-040")));
         map.put(2l,new Usuario(2l,"Unip Paraiso",new Endereco(1l,"Rua Vergueiro","1211","Sao Paulo","SP","Paraiso","01504-000")));
     }
-    public static List<Usuario> getUsuarios() {
+    public static List<Usuario> list() {
         return  new ArrayList<Usuario>(map.values());
     }
 
 
-    public static Usuario getUsuario(Long id) {
+    public static Usuario get(Long id) {
         return  map.get(id);
     }
 
@@ -34,13 +34,13 @@ public class UsuarioDAO {
         return resultado;
     }
 
-    public static Usuario updateUsuario(Long id, Usuario user) {
-        deleteUsuario(id);
+    public static Usuario update(Long id, Usuario user) {
+        delete(id);
         map.put(id,user);
         return user;
     }
 
-    public static void deleteUsuario(Long id) {
+    public static void delete(Long id) {
         map.remove(id);
     }
 }

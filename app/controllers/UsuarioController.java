@@ -2,12 +2,12 @@ package controllers;
 
 import dao.UsuarioDAO;
 import modelo.Usuario;
-import play.libs.Json;
-
-import play.mvc.Controller;
-import play.mvc.Result;
 
 import java.util.List;
+
+import play.libs.Json;
+import play.mvc.Controller;
+import play.mvc.Result;
 
 import static dao.UsuarioDAO.save;
 
@@ -17,35 +17,35 @@ import static dao.UsuarioDAO.save;
 public class UsuarioController extends Controller {
     private static UsuarioDAO usuarioDao = new UsuarioDAO();
     
-    public static Result getUsuarios()
+    public static Result list()
     {
-        List<Usuario> users = UsuarioDAO.getUsuarios();
+        List<Usuario> users = UsuarioDAO.list();
         return ok(Json.toJson(users));
     }
 
-    public static Result getUsuario(Long id)
+    public static Result get(Long id)
     {
-        Usuario user = UsuarioDAO.getUsuario(id);
+        Usuario user = UsuarioDAO.get(id);
         return user == null ? notFound() : ok(Json.toJson(user));
     }
 
-    public static Result createUsuario()
+    public static Result create()
     {
         Usuario newUsuario = Json.fromJson(request().body().asJson(), Usuario.class);
         Usuario inserted = save(newUsuario);
         return created(Json.toJson(inserted));
     }
 
-    public static Result updateUsuario(Long id)
+    public static Result update(Long id)
     {
         Usuario user = Json.fromJson(request().body().asJson(), Usuario.class);
-        Usuario updated = UsuarioDAO.updateUsuario(id, user);
+        Usuario updated = UsuarioDAO.update(id, user);
         return ok(Json.toJson(updated));
     }
 
-    public static Result deleteUsuario(Long id)
+    public static Result delete(Long id)
     {
-        UsuarioDAO.deleteUsuario(id);
+        UsuarioDAO.delete(id);
         return noContent();
     }
 }
