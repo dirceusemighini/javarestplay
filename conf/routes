@@ -3,3 +3,5 @@ POST    /usuario                controllers.UsuarioController.create()
 GET     /usuario/:id            controllers.UsuarioController.get(id:Long)
 PUT     /usuario/:id            controllers.UsuarioController.update(id:Long)
 DELETE  /usuario/:id            controllers.UsuarioController.delete(id:Long)
+
+GET     /clientes               controllers.ClienteController.getClientes()
