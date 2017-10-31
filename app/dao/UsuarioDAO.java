@@ -29,6 +29,7 @@ public class UsuarioDAO {
     }
 
     public static Usuario save(Usuario novoUsuario) {
+        
         Usuario resultado = new Usuario((long)map.size()+1,novoUsuario);
         map.put((long)map.size()+1, resultado );
         return resultado;

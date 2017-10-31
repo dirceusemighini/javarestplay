@@ -1,7 +1,1 @@
-logs
-project/project
-target
-project/target
-.idea_modules
-.settings
-.idea
+/bin/

@@ -20,6 +20,7 @@ public class ClienteController extends Controller {
         holder.setQueryParameter("lang","pt");
         holder.setQueryParameter("username","demo");
         Promise<WSResponse> promise = holder.get();
+
         return promise.map(f -> ok(f.asJson()));
     }
 }

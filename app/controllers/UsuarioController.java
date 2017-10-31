@@ -29,12 +29,7 @@ public class UsuarioController extends Controller {
         return user == null ? notFound() : ok(Json.toJson(user));
     }
 
-    public static Result create()
-    {
-        Usuario newUsuario = Json.fromJson(request().body().asJson(), Usuario.class);
-        Usuario inserted = save(newUsuario);
-        return created(Json.toJson(inserted));
-    }
+
 
     public static Result update(Long id)
     {
@@ -42,7 +37,12 @@ public class UsuarioController extends Controller {
         Usuario updated = UsuarioDAO.update(id, user);
         return ok(Json.toJson(updated));
     }
-
+    public static Result create()
+    {
+        Usuario newUsuario = Json.fromJson(request().body().asJson(), Usuario.class);
+        Usuario inserted = save(newUsuario);
+        return created(Json.toJson(inserted));
+    }
     public static Result delete(Long id)
     {
         UsuarioDAO.delete(id);
