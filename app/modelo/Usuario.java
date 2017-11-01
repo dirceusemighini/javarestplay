@@ -8,6 +8,9 @@ public class Usuario {
     private String nome;
     private Endereco endereco;
 
+    public Usuario(){
+
+    }
     public Usuario(Long id, Usuario usuario) {
         this.id = id;
         this.endereco = usuario.endereco;
